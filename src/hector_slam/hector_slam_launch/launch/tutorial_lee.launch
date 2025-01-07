@@ -1,0 +1,12 @@
+<launch>
+    <!-- Hector SLAM tutorial launch 파일 실행 -->
+    <include file="$(find hector_slam_launch)/launch/tutorial.launch" />
+
+    <!-- map에서 base_footprint로의 정적 변환 퍼블리셔 실행 -->
+    <node pkg="tf" type="static_transform_publisher" name="map_to_base_footprint" 
+          args="0 0 0 0 0 0 map base_footprint 100" />
+
+    <!-- map에서 base_link로의 정적 변환 퍼블리셔 실행 -->
+    <node pkg="tf" type="static_transform_publisher" name="map_to_base_link" 
+          args="0 0 0 0 0 0 map base_link 100" />
+</launch>
