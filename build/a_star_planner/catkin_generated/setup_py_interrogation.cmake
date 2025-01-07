@@ -1,0 +1,7 @@
+set(a_star_planner_SETUP_PY_SETUP_MODULE "setuptools")
+set(a_star_planner_SETUP_PY_VERSION "0.0.0")
+set(a_star_planner_SETUP_PY_SCRIPTS "")
+set(a_star_planner_SETUP_PY_PACKAGES "a_star_planner")
+set(a_star_planner_SETUP_PY_PACKAGE_DIRS "a_star_planner")
+set(a_star_planner_SETUP_PY_MODULES "")
+set(a_star_planner_SETUP_PY_MODULE_DIRS "")

@@ -1,0 +1,16 @@
+from setuptools import setup
+
+package_name = 'a_star_planner'
+
+setup(
+    name=package_name,
+    version='0.0.0',  # package.xml과 일치시킴
+    packages=[package_name],
+    install_requires=['setuptools', 'numpy'],  # numpy 추가
+    zip_safe=True,
+    maintainer='Your Name',
+    maintainer_email='your_email@example.com',
+    description='A* Path Planner',
+    license='BSD',
+    tests_require=['pytest'],
+)
