@@ -1,0 +1,11 @@
+local_costmap:
+  global_frame: "base_footprint"
+  robot_base_frame: "base_link"
+  update_frequency: 5.0
+  publish_frequency: 5.0
+  transform_tolerance: 0.5
+  width: 6.0           # 기존보다 확장된 값
+  height: 6.0          # 기존보다 확장된 값
+  resolution: 0.05     # 해상도를 더 세밀하게 설정
+  rolling_window: true
+  static_map: false

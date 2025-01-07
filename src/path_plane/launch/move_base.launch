@@ -1,0 +1,9 @@
+<launch>
+  <!-- Move Base -->
+  <node pkg="move_base" type="move_base" name="move_base" output="screen"/>
+  <!-- Global Costmap -->
+  <rosparam file="/home/leejh104/ydlidar_ws/src/path_plane/param/global_costmap_params.yaml" command="load"/>
+
+  <!-- Local Costmap -->
+  <rosparam file="/home/leejh104/ydlidar_ws/src/path_plane/param/local_costmap_params.yaml" command="load"/>
+</launch>

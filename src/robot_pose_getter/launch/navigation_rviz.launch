@@ -1,0 +1,7 @@
+<launch>
+  <!-- navigation_1.launch 실행 -->
+  <include file="$(find robot_pose_getter)/launch/navigation_1.launch"/>
+
+  <!-- RViz 실행: navigation.rviz 설정 파일 자동 로드 -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_pose_getter)/rviz/navigation.rviz" output="screen"/>
+</launch>

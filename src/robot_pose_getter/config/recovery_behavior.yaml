@@ -1,0 +1,10 @@
+recovery_behavior:
+  default_recovery_behaviors: ["clear_costmap_recovery", "rotate_recovery"]
+  
+clear_costmap_recovery:
+  reset_distance: 2.0               # 회복 시 코스트맵 초기화 범위 줄이기
+
+rotate_recovery:
+  frequency: 1.0                    # 회전 빈도 낮춤
+  max_rotational_velocity: 0.3      # 최대 회전 속도 제한
+  min_in_place_rotational_velocity: 0.1

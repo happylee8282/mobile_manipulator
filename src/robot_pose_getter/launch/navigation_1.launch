@@ -1,0 +1,23 @@
+<launch>
+
+  <!-- Map Server 설정 (이미 생성된 지도 사용) -->
+<node name="map_server" pkg="map_server" type="map_server" args="/home/leejh104/project_map.yaml">
+</node>
+
+  <!-- AMCL 설정 -->
+  <include file="$(find robot_pose_getter)/launch/amcl.launch"/>
+
+  <!-- Move Base 설정 -->
+ <include file="$(find robot_pose_getter)/launch/move_base.launch"/>
+ 
+
+   <!-- TF 변환 설정: map → base_footprint -->
+  <node pkg="tf" type="static_transform_publisher" name="map_to_base_footprint" args="0 0 0 0 0 0 map base_footprint 100"/>
+
+  <!-- TF 변환 설정: base_footprint → based_link -->
+  <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0 0 0 0 base_footprint base_link 100"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0 0 0.2 0 0 0 base_link laser_frame 100"/>
+
+
+</launch>

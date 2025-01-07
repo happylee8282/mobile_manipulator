@@ -1,0 +1,19 @@
+DWAPlannerROS:
+  max_vel_x: 0.2   # 로봇이 이동하지 않도록 설정
+  min_vel_x: 0.05
+  max_vel_theta: 0.3
+  min_vel_theta: 0.1
+
+  # 목표 경로 표시를 위한 거리
+  xy_goal_tolerance: 0.1
+  yaw_goal_tolerance: 0.1
+
+  # 경로 샘플 수 설정
+  vx_samples: 10
+  vy_samples: 0
+  vtheta_samples: 20
+
+  # 비용 함수 가중치 설정 (경로 생성 전용)
+  path_distance_bias: 32.0
+  goal_distance_bias: 24.0
+  occdist_scale: 0.01

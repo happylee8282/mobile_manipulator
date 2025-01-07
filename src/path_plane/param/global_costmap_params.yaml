@@ -1,0 +1,10 @@
+global_costmap:
+  global_frame: "map"
+  robot_base_frame: "base_link"
+  update_frequency: 5.0
+  publish_frequency: 5.0
+  transform_tolerance: 0.5
+  static_map: true
+  width: 50.0    # 글로벌 맵의 너비 (단위: 미터)
+  height: 50.0   # 글로벌 맵의 높이 (단위: 미터)
+  resolution: 0.05  # 맵 해상도 (1셀당 미터 단위)

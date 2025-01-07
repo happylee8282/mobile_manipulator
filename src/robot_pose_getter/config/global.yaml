@@ -1,0 +1,29 @@
+global_costmap:
+  global_frame: "map"
+  robot_base_frame: "base_link"
+  update_frequency: 1.0
+  publish_frequency: 1.0
+  transform_tolerance: 0.5
+  width: 15.0
+  height: 15.0
+
+  resolution: 0.03
+  origin_x: -5.0
+  origin_y: -5.0
+  rolling_window: false
+  static_map: true
+
+  plugins:
+    - {name: static_layer, type: "costmap_2d::StaticLayer"}
+    - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
+
+obstacle_layer:
+  observation_sources: laser_scan
+  laser_scan: {sensor_frame: laser_frame, data_type: LaserScan, topic: /scan, marking: true, clearing: true}
+  obstacle_range: 1.0        # 장애물 감지 범위 크게 줄임
+  raytrace_range: 1.2        # 레이 트레이싱 범위 크게 줄임
+
+inflation_layer:
+  inflation_radius: 0.001      # 인플레이션 반경을 매우 작게 설정
+  cost_scaling_factor: 0.01   # 비용 스케일링을 낮춰 장애물 주변 비용 축소
