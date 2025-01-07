@@ -1,0 +1,70 @@
+<robot name="basic_box_robot">
+
+  <!-- 기본 색상 정의 -->
+  <material name="gray">
+    <color rgba="0.5 0.5 0.5 1"/>
+  </material>
+
+  <material name="blue">
+    <color rgba="0 0 1 1"/>
+  </material>
+
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+
+  <!-- 원통의 링크 정의 -->
+  <link name="cylinder_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.03685" length="0.054"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+  </link>
+
+  <!-- base_link 정의 (cylinder_link와 연결) -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <sphere radius="0.05"/> <!-- base_link를 작은 구로 표현 -->
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <!-- 박스의 링크 정의 -->
+  <link name="box_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.33 0.34 0.16"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.25 0.34 0.16"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- cylinder_link와 base_link를 연결하는 고정 조인트 -->
+  <joint name="cylinder_to_base" type="fixed">
+    <parent link="base_link"/>
+    <child link="cylinder_link"/>
+    <origin xyz="0 0 0.187" rpy="0 0 0"/> <!-- cylinder_link와 base_link의 중심 일치 -->
+  </joint>
+
+  <!-- cylinder_link와 박스를 연결하는 고정 조인트 -->
+  <joint name="cylinder_to_box" type="fixed">
+    <parent link="cylinder_link"/>
+    <child link="box_link"/>
+    <origin xyz="0 0.17 -0.107" rpy="0 0 0"/> <!-- 박스가 cylinder_link 위에 배치 -->
+  </joint>
+
+</robot>

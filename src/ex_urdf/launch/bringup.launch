@@ -1,0 +1,13 @@
+<launch>
+  <!-- URDF 파일을 robot_description 파라미터로 로드 -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find ex_urdf)/urdf/lee_ex.urdf'" />
+
+  <!-- Joint State Publisher 실행 -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+  <!-- Robot State Publisher 실행 -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- RViz 실행 (선택사항) -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ex_urdf)/rviz/robot.rviz" output="screen" />
+</launch>
